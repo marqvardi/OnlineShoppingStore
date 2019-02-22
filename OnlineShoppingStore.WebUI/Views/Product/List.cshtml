@@ -1,0 +1,22 @@
+﻿@model OnlineShoppingStore.WebUI.Models.ProductListViewModel
+
+@{
+    ViewBag.Title = "Products";
+}
+
+<h2>List</h2>
+
+@foreach (var item in Model.Products)
+{
+   @Html.Partial("_ProductSummary", item)
+}
+
+
+<div class="btn-group pull-left">
+    @Html.PageLinks(Model.pagingInfo, x => Url.Action("List",
+    new { page = x, category = Model.CurrrentCategory }));
+
+</div>
+
+
+
